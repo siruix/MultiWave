@@ -1,0 +1,19 @@
+% main file for P1(c)
+
+f = 1024;
+load signal1.dat
+h = signal1;
+N = log2(f);
+[c d] = haar(h, 0, f);
+
+for i=N:-1:1
+    t = linspace(0, 1, f/2^(N-i));
+    figure(i)
+    subplot(2,1,1);
+    plot(t, [c(i,1:f/2^(N-i+1)) d(i,1:f/2^(N-i+1))]); 
+    str = sprintf('j=%d',N-i);
+    title(str);
+
+    subplot(2,1,2);
+    plot(t,y2)
+end

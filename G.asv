@@ -1,0 +1,27 @@
+% Discriminant Function 
+% X2 is data 450*18
+% W is 9*18*18
+% w is 9*18
+% w0 is 9*1
+function class = G(X2, W, w, w0)
+
+N_data = size(X2, 1);
+N_class = 9;
+tmp_max = -Inf(1, N_data);
+class = zeros(1, N_data);
+n_dim = 18;
+W_j = zeros(n_dim, n_dim);
+
+    
+for i=1:N_data
+    x = X2(i,:);
+    for j = 1:N_class      
+        W_j = squeeze(W(j,:,:));
+        tmp = x*W_j*x' + w(j,:)*x' + w0(j);
+        class(tmp_max < tmp) = j;
+        tmp_max(tmp_max < tmp) = tmp;
+
+    end
+end
+end
+

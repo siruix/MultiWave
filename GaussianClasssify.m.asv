@@ -1,0 +1,9 @@
+%% Recognition
+load MultiChannel.mat
+N_class = 9;
+% Train each classifier saperately
+train = zeros(N_class, 100);
+for i = 1:length(y1)
+    train(y1(i) ,i)
+    
+end
