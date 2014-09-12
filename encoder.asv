@@ -1,6 +1,0 @@
-% DWT encoder
-load signal1.dat
-N = length(signal1);
-J = log2(N);
-[c0 d] = DWT(signal1, J);
-% uniform quantization
